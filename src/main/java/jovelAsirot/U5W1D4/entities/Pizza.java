@@ -1,6 +1,7 @@
 package jovelAsirot.U5W1D4.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jovelAsirot.U5W1D4.enums.PizzaSize;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +16,14 @@ import java.util.List;
 public class Pizza extends MenuItem {
 
     private String name;
+
+    //    @ManyToMany
+//    @JoinTable(name = "pizza_toppings", joinColumns = @JoinColumn(name = "pizza_id"),
+//            inverseJoinColumns = @JoinColumn(name = "toppings_id"))
+    
     @ManyToMany
-    @JoinTable(name = "pizza_toppings", joinColumns = @JoinColumn(name = "pizza_id"),
-            inverseJoinColumns = @JoinColumn(name = "toppings_id"))
     private List<Topping> toppingList;
+
     private PizzaSize pizzaSize;
 
     public Pizza(String name, List<Topping> toppingList, int calories, double price, PizzaSize pizzaSize) {
@@ -28,12 +33,6 @@ public class Pizza extends MenuItem {
         this.pizzaSize = pizzaSize;
     }
 
-    @Override
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return super.getId();
-    }
 
     @Override
     public String toString() {

@@ -1,9 +1,6 @@
 package jovelAsirot.U5W1D4.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,13 +16,6 @@ public class Beverage extends MenuItem {
     public Beverage(String name, int calories, double price) {
         super(calories, price);
         this.name = name;
-    }
-
-    @Override
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return super.getId();
     }
 
     @Override

@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NoArgsConstructor
+@MappedSuperclass
 public abstract class MenuItem {
 
     protected int calories;

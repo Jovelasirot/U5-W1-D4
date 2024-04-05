@@ -1,7 +1,8 @@
 package jovelAsirot.U5W1D4.entities;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +16,10 @@ import java.util.List;
 public class Topping extends MenuItem {
 
     private String name;
-    @ManyToMany(mappedBy = "toppings")
+
+    //    @ManyToMany(mappedBy = "toppings")
+
+    @ManyToMany(mappedBy = "toppingList")
     private List<Pizza> pizzasList;
 
     public Topping(String name, int calories, double price) {
@@ -23,12 +27,6 @@ public class Topping extends MenuItem {
         this.name = name;
     }
 
-    @Override
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return super.getId();
-    }
 
     @Override
     public String toString() {
