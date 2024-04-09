@@ -17,9 +17,7 @@ public class Topping extends MenuItem {
 
     private String name;
 
-    //    @ManyToMany(mappedBy = "toppings")
-
-    @ManyToMany(mappedBy = "toppingList")
+    @ManyToMany(mappedBy = "toppings")
     private List<Pizza> pizzasList;
 
     public Topping(String name, int calories, double price) {

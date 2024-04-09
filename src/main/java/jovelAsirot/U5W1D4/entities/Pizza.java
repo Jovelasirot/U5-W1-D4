@@ -1,6 +1,8 @@
 package jovelAsirot.U5W1D4.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jovelAsirot.U5W1D4.enums.PizzaSize;
 import lombok.Getter;
@@ -17,11 +19,9 @@ public class Pizza extends MenuItem {
 
     private String name;
 
-    //    @ManyToMany
-//    @JoinTable(name = "pizza_toppings", joinColumns = @JoinColumn(name = "pizza_id"),
-//            inverseJoinColumns = @JoinColumn(name = "toppings_id"))
-    
     @ManyToMany
+    @JoinTable(name = "pizza_toppings", joinColumns = @JoinColumn(name = "pizza_id"),
+            inverseJoinColumns = @JoinColumn(name = "toppings_id"))
     private List<Topping> toppingList;
 
     private PizzaSize pizzaSize;

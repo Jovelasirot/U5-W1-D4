@@ -1,20 +1,20 @@
 package jovelAsirot.U5W1D4.entities;
 
+import jakarta.persistence.Table;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Entity
+@Table(name = "menu_items")
 @NoArgsConstructor
-@MappedSuperclass
+@Getter
+@Setter
+@ToString
 public abstract class MenuItem {
 
     protected int calories;
-    protected double price;
 
+    protected double price;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
